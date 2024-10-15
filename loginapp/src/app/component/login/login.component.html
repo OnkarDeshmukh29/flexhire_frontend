@@ -1,0 +1,64 @@
+<section class="sign-in">
+  <div class="container">
+    <div class="signin-content">
+      <div class="signin-image">
+        <figure><img src="images/as.png" alt="sign in image"/></figure>
+        <a routerLink="/signup" class="signup-image-link">Create an account</a>
+      </div>
+      <div class="signin-form">
+        <h2 class="form-title">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onloginSubmit()">
+          <div class="form-group">
+            <div class="label-container">
+              <label for="username"></label>
+              <i class="fa-solid fa-user"></i>
+              <input
+              type="text"
+              formControlName="username"
+              id="username"
+              placeholder="Username"/>
+            </div>
+            <div *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="error-message">
+              <div *ngIf="f['username'].errors?.['required']"  style="color: red;">Username is required</div>
+              <div *ngIf="f['username'].errors?.['minlength']" style="color: red;">Username must be at least 3 characters long</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label-container">
+              <label for="password"></label>
+              <i class="fa-solid fa-lock"></i>
+              <input
+              type="password"
+              formControlName="password"
+              id="password"
+              placeholder="Password"
+              />
+            </div>
+            <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="error-message">
+              <div *ngIf="f['password'].errors?.['required']" style="color: red;">Password is required</div>
+              <div *ngIf="f['password'].errors?.['minlength']" style="color: red;">Password must be at least 6 characters long</div>
+            </div>
+          </div>
+          <div class="form">
+            <div class="agree-term">
+                <input type="checkbox" formControlName="rememberMe" id="remember-me" />
+                <label for="remember-me" class="label-agree-term">Remember me</label>
+            </div>
+          </div>
+          <div class="form-group form-button">
+            <input type="submit" [disabled]="loginForm.invalid" class="form-submit" value="Log in"/>
+          </div>
+        </form>
+        <div class="social-login">
+          <span class="social-label">Or login with</span>
+          <ul class="socials">
+            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

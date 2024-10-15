@@ -1,0 +1,197 @@
+/* General container and form layout */
+.container {
+    width: 100%;
+    max-width: 900px; /* Limits the max width to 900px */
+    background: #fff;
+    margin: 48px auto;
+    box-shadow: 15px 15px 16.83px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 36px;
+    padding: 36px;
+}
+
+/* Sign-in content layout */
+.signin-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    width: 100%;
+}
+
+/* Ensure same width for both the form and image */
+.signin-form, .signin-image {
+    width: 50%; /* Both the form and image occupy 50% of the container */
+    box-sizing: border-box;
+    padding: 12px;/* Add padding for space */
+    font-size: 18px;
+}
+
+/* Sign-in image container */
+.signin-image {
+    text-align: center;
+    position: relative;
+    margin: 0;
+}
+
+/* Adjust the size of the image */
+.signin-image figure img {
+    max-width: 100%; /* Ensures the image doesn't overflow */
+    width: 100%; /* Ensures it takes up the full width of its container */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Sign-in form styling */
+.form-title {
+    margin-bottom: 33px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form group styling */
+.form-group {
+    position: relative;
+    margin-bottom: 24   px;
+    overflow: hidden;
+}
+.form-group{
+    display:flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+.form-group label{
+    margin-right: 12px;
+
+}
+
+input {
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 18px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-bottom: 1px solid #222;
+}
+
+input[type="submit"] {
+    display: inline-block;
+    background: #6dabe4;
+    color: #fff;
+    border: none;
+    padding: 15px 39px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #4292dc;
+}
+
+.form-submit {
+    margin-top: 25px;
+}
+
+/* Remember me checkbox styling */
+.agree-term {
+    display: inline-block;
+    width: auto;
+}
+
+.label-agree-term {
+    position: relative;
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+/* Social login section */
+.social-login {
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.social-label {
+    margin-right: 15px;
+}
+
+.socials {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.socials li {
+    margin-right: 15px;
+}
+
+.socials li a {
+    text-decoration: none;
+}
+
+.socials li a i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #3b5998;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.socials li:hover a i {
+    transform: scale(1.3);
+}
+
+/* Facebook, Twitter, and Google icon colors */
+.zmdi-facebook {
+    background-color: #3b5998;
+}
+
+.zmdi-twitter {
+    background-color: #1da0f2;
+}
+
+.zmdi-google {
+    background-color: #e72734;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+    .signin-content {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .signin-form,
+    .signin-image {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .signin-image {
+        margin-top: 50px;
+    }
+
+    .social-login {
+        justify-content: center;
+    }
+
+    .form-button {
+        text-align: center;
+    }
+}
+

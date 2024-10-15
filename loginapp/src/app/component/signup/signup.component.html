@@ -1,0 +1,65 @@
+<!-- Sign In Form -->
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-form">
+                <h2 class="form-title">Sign up</h2>
+                <form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()" class="register-form" id="login-form">
+                    <div class="form-group">
+                        <label for="username"></label>
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" formControlName="username" id="username" placeholder="Username"/>
+
+                    <div *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="error-message">
+                          <small *ngIf="f['username'].errors?.['required']" style="color: red;">Username is required</small>
+                          <small *ngIf="f['username'].errors?.['minlength']" style="color: red;">Username must be at least 3 characters long</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" formControlName="email" id="email" placeholder="Your Email"/>
+                        <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="error-message">
+                            <small *ngIf="f['email'].errors?.['required']" style="color: red;">Email is required.</small>
+                            <small *ngIf="f['email'].errors?.['email']" style="color: red;">Please enter a valid email.</small>                         
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"></label>
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" formControlName="password" id="password" placeholder="Password"/>
+                        <div *ngIf="f['password'].touched && f['password'].invalid" class="error">
+                            <small *ngIf="f['password'].errors?.['required']" style="color: red;">Password is required</small>
+                            <small *ngIf="f['password'].errors?.['minlength']" style="color: red;">Password must be at least 6 characters long</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmpassword"></label>
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" formControlName="confirmpassword" id="confirmpassword" placeholder="Confirm Password"/>
+                        <div *ngIf="f['confirmpassword'].touched && signupForm.errors?.['mismatch']" class="error" style="color: red;">
+                          <small>Passwords do not match.</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" formControlName="agreeterm" id="label-agree-term" class="agreterm"/>
+                        <label for="agreeterm" class="label-agree-term">
+                          <span><span></span></span>I agree all statement in <span><u><b>Terms and Condition</b></u></span>
+                        </label>
+                        <div *ngIf="f['agreeterm'].touched && f['agreeterm'].invalid" class="error" style="color: red;">
+                          <small>You must agree to the terms and conditions.</small>
+                        </div>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" [disabled]="signupForm.invalid" class="form-submit" value="Sign up"/>
+                    </div>
+                </form>
+            </div>
+            <div class="signin-image">
+                <figure><img src="/images/asdf.png" alt="sign in image"/></figure>
+                <a routerLink="/login" class="signup-image-link">Already have an account</a>
+            </div>
+        </div>
+    </div>
+</section>
