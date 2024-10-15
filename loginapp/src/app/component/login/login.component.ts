@@ -38,13 +38,19 @@ export class LoginComponent implements OnInit {
         // Directly use the form values without creating a credentials object
         const username = this.loginForm.value.username;
         const password = this.loginForm.value.password;
-        const token=localStorage.getItem('access_token');
       
         // Call login method of authService with the form values directly
         this.authService.login(username, password).subscribe({
           next: response => {
             console.log('Login successful', response);
-            this.authService.storeToken(response.token);
+            console.log('Full response:', response); 
+            if (response.token) {
+              localStorage.setItem('access_token', response.token);
+            } else {
+              console.error('Token is missing in the response');
+            }
+          
+            //this.authService.storeToken(response.token);
             // Navigate to a different page or take other actions here
             this.router.navigateByUrl('/dashboard');
           },
